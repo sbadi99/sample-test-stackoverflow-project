@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Wag Project</string>
+    <string name="host">api.stackexchange.com</string>
+    <string name="path">/2.2/users</string>
+    <string name="scheme">https</string>
+    <string name="order">desc</string>
+    <string name="sort">reputation</string>
+    <string name="site">stackoverflow</string>
+    <string name="avatar">avatar</string>
+    <string name="gold_badges">Gold Badges</string>
+    <string name="silver_badges">Silver Badges</string>
+    <string name="server_error">Server update failed. Please try again later!</string>
+    <string name="user_link">userLink</string>
+</resources>
