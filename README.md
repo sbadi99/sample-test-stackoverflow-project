@@ -21,7 +21,7 @@
 
 **Awesome Splash** Awesome-looking customizable splash screen 
 
-**NOTE:** To access the project, please download the zip file from the repo and and open the project in Android Studio. I have tested on two different machines, in the rare event there are any build issues please let me know. Also I have tested the app on Android 6.0 and Android 7.0 and some additional emulated devices.
+**NOTE:** To access the project, please download the zip file from the repo and and open the project in Android Studio. I have tested on multiple machines, in the rare event there are any build issues please let me know. Also I have tested the app on Android 6.0 and Android 7.0 and some additional emulated devices.
 
 If the team has any questions or need clarifications during the review process, please let me know and I will be happy to address any queries the team may have.
 
