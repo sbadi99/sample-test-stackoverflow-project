@@ -20,4 +20,17 @@
 **Glide** is a fast and efficient open source media management and image loading framework for Android that wraps media decoding, memory and disk caching, and resource pooling into a simple and easy to use interface.
 
 **Awesome Splash** Awesome-looking customizable splash screen 
+
+**NOTE:** To access the project, please download the zip file from the repo and and open the project in Android Studio. I have tested on two different machines, in the rare event there are any build issues please let me know. Also I have tested the app on Android 6.0 and Android 7.0 and some additional emulated devices.
+
+If the team has any questions or need clarifications during the review process, please let me know and I will be happy to address any queries the team may have.
+
+![Alt text](./device-2017-08-18-090125.png?raw=true "Optional Title")
+
+![Alt text](./device-2017-08-18-085253.png?raw=true "Optional Title")
+
+![Alt text](./device-2017-08-18-090245.png?raw=true "Optional Title")
+
+
+
     
