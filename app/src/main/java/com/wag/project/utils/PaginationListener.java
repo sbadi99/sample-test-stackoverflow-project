@@ -18,7 +18,6 @@ public abstract class PaginationListener extends RecyclerView.OnScrollListener {
 
     /**
      * Constructor
-     *
      * @param layoutManager The LinearLayoutManager passed
      */
     public PaginationListener(@NonNull final LinearLayoutManager layoutManager) {

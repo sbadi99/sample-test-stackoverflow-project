@@ -24,24 +24,25 @@ import java.util.Observer;
 
 /**
  * @author Shakeel Badi
- *         <p>
- *         Project uses StackOverflow API to dynamically retrieves StackOverflow user data including image avatars
- *         Project uses Google GSON to process JSON response from StackOverflow API
- *         Project uses Android recommended Glide Library to handle loading and caching of user avatar images
- *         Project supports pagination (Limits it to first 2 pages for demo but is configurable)
- *         Project supports Swipe to Refesh (Swipe down from top - Limits it to first 2 pages for demo but is configurable)
- *         Project displays webview with user details on ReclyclerView click
- *         Project also includes a custom launcher icon and animated Splash screen
+ *
+ * Project uses StackOverflow API to dynamically retrieves StackOverflow user data including image avatars
+ * Project uses Google GSON to process JSON response from StackOverflow API
+ * Project uses Android recommended Glide Library to handle loading and caching of user avatar images
+ * Project displays rounded images (instead of the default square images)
+ * Project supports pagination (Limits it to first 2 pages for demo but is configurable)
+ * Project supports swipe to load next page (Swipe down from top - Limits it to first 2 pages for demo but is configurable)
+ * Project displays webview with user details on ReclyclerView click
+ * Project also includes a custom launcher icon and animated Splash screen
+ *
  */
 public class MainActivity extends AppCompatActivity implements Observer {
 
     private static final String TAG = MainActivity.class.getName();
 
-    private SwipeRefreshLayout         swipeContainer;
-    private StackOverflowAdapter       adapter;
-    private ProgressBar                progressBar;
+    private SwipeRefreshLayout swipeContainer;
+    private StackOverflowAdapter adapter;
+    private ProgressBar progressBar;
     private StackOverflowAPIController stackOverflowAPIController;
-
     private int currentPage = 1;
     private boolean isLoading   = false;
 
@@ -65,13 +66,14 @@ public class MainActivity extends AppCompatActivity implements Observer {
 
             @Override
             public void onRefresh() {
-                Log.d(TAG, "Swipe from top refresh: ");
+                Log.d(TAG, "Swipe from top load next page: ");
                 currentPage += 1;
                 //loadNextPage
                 if (currentPage < maxPages) {
                     stackOverflowAPIController.makeStackOverflowUserApiCall(currentPage);
                 }
                 swipeContainer.setRefreshing(false);
+                swipeContainer.setEnabled(false);
             }
         });
 
@@ -83,8 +85,7 @@ public class MainActivity extends AppCompatActivity implements Observer {
           android.R.color.holo_blue_light
         );
 
-        final LinearLayoutManager linearLayoutManager =
-          new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
@@ -105,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements Observer {
                         }
                     }, delay);
                 } else {
+                    //no more pages to load
                     adapter.removeLoadingFooter();
                     progressBar.setVisibility(View.GONE);
                 }
@@ -139,29 +141,30 @@ public class MainActivity extends AppCompatActivity implements Observer {
     public void update(Observable observable, Object data) {
 
         if(data instanceof VolleyError){
+            //Handle Server error
             showServerError();
             Log.d(TAG, "API error: " + ((VolleyError)data).getMessage());
         }
 
         if (observable instanceof StackOverflowAPIController && currentPage == 1) {
             Log.d(TAG, "StackOverflow API response received first page: " + "nextPageToken:" + currentPage);
-            updateUI((List<ItemDto>)data);
 
         } else if (observable instanceof StackOverflowAPIController) {
             Log.d(TAG, "StackOverflow API response received next page: " + "nextPageToken:" + currentPage);
             adapter.removeLoadingFooter();
             isLoading = false;
             adapter.clear();
-            updateUI((List<ItemDto>)data);
         }
+        updateUI((List<ItemDto>)data);
     }
 
     /**
-     * Show Server error
+     * Show Server error (StackOverflow API does have issue at times,
+     * due to "throttling limit" if too much data is requested at once
      */
     private void showServerError() {
-        Snackbar.make(findViewById(android.R.id.content), R.string.server_error, Snackbar.LENGTH_LONG)
-                .show();
+        Snackbar.make(findViewById(android.R.id.content),
+                R.string.server_error, Snackbar.LENGTH_LONG).show();
     }
 
     /**

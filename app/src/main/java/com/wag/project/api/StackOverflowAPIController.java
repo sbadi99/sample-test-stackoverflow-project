@@ -28,13 +28,13 @@ import java.util.Observable;
  */
 public class StackOverflowAPIController extends Observable {
 
-    private static final String TAG          = StackOverflowAPIController.class.getName();
+    private static final String TAG = StackOverflowAPIController.class.getName();
     private static final String EMPTY_STRING = "";
 
-    private final RequestQueue             stackOverflowQueue;
-    private final Activity                 activity;
-    private       StackOverflowResponseDto stackOverflowResponseDto;
-    private       List<ItemDto>            stackOverflowItems;
+    private final RequestQueue stackOverflowQueue;
+    private final Activity activity;
+    private StackOverflowResponseDto stackOverflowResponseDto;
+    private List<ItemDto> stackOverflowItems;
 
     /**
      * Constructor Initializes the Volley Networking Library instance as well

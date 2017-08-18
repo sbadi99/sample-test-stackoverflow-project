@@ -13,7 +13,6 @@ public class ImageUtils {
 
     /**
      * Save image on device (internal storage)
-     *
      * @param context The context
      * @param bitmap The bitmap
      * @param imageName The name of the image

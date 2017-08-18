@@ -9,9 +9,9 @@ import android.support.annotation.NonNull;
 public class ItemDto {
 
     private BadgeCountsDto badge_counts;
-    private String         link;
-    private String         profile_image;
-    private String         display_name;
+    private String link;
+    private String profile_image;
+    private String display_name;
 
     @NonNull
     public BadgeCountsDto getBadgeCounts() {

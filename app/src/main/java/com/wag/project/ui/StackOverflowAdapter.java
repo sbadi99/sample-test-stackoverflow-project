@@ -22,7 +22,6 @@ import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.wag.project.R;
 import com.wag.project.model.BadgeCountsDto;
 import com.wag.project.model.ItemDto;
-import com.wag.project.utils.ImageUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +35,7 @@ public class StackOverflowAdapter extends RecyclerView.Adapter<RecyclerView.View
     private final Context       context;
     private static final int     ITEM      = 0;
     private static final int     LOADING   = 1;
-    private              boolean isLoading = false;
+    private boolean isLoading = false;
     private static final String  EMPTY     = " ";
 
     /**
@@ -137,7 +136,7 @@ public class StackOverflowAdapter extends RecyclerView.Adapter<RecyclerView.View
                              super.onResourceReady(drawable, anim);
 
                              //Save image to internal usage for offline use
-                             ImageUtils.saveImage(context, drawable, result.getDisplayName());
+                             //ImageUtils.saveImage(context, drawable, result.getDisplayName());
 
                              // image ready, hide progress
                              stackOverflowUser.progressBar.setVisibility(View.GONE);
