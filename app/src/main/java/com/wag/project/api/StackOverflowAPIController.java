@@ -52,8 +52,7 @@ public class StackOverflowAPIController extends Observable {
     public void makeStackOverflowUserApiCall(int page) {
 
         final String url = getUrlParameters(String.valueOf(page)).toString();
-        StringRequest StackOverflowApiRequest =
-          new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        StringRequest StackOverflowApiRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
               @Override
               public void onResponse(String response) {
                   Log.d(TAG, response);
