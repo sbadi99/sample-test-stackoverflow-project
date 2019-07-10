@@ -1,4 +1,4 @@
-# wag-stackoverflow-project
+# sample-test-stackoverflow-project
 
  * Project uses StackOverflow API to retrieve StackOverflow user data including image avatars
  * Project displays rounded images (instead of the default square images)
