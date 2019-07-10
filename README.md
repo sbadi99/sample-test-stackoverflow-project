@@ -25,10 +25,6 @@
 
 If the team has any questions or need clarifications during the review process, please let me know and I will be happy to address any queries the team may have.
 
-![Alt text](./device-2017-08-18-090125.png?raw=true "Optional Title")
-
-![Alt text](./device-2017-08-18-085253.png?raw=true "Optional Title")
-
 ![Alt text](./device-2017-08-18-090245.png?raw=true "Optional Title")
 
 
